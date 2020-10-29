@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node ./src/index.js",
-    "dev": "nodemon index.js --exec babel-node"
+    "start": "npm run build && node ./build/index.js",
+    "dev": "nodemon ./src/index.js --exec babel-node",
+    "clean": "rm -rf build && mkdir build",
+    "build": "npm run clean && npm run build-babel"
   },
   "keywords": [],
   "author": "",
