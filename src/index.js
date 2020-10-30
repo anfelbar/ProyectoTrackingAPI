@@ -3,23 +3,12 @@ import morgan from 'morgan';
 import cors from 'cors';
 import mongoose, { mongo } from 'mongoose';
 
-
-// JS E5
-//const express = require('express');
-//const morgan = require('morgan');
-//const cors = require('cors');
-//instancia 
-
-//Importacion de modulo
 import path from 'path';
 
-//Importacion de rutas
+
 import router from './routes';
 
-///mongodb+srv://tracking:tracking123>@trackingapi.pk5kg.mongodb.net/Tracking?retryWrites=true&w=majority
 
-////
-//Cadena de conexion a la base de datos
 mongoose.Promise = global.Promise;
 const dbUrl = 'mongodb+srv://tracking:tracking@trackingapi.pk5kg.mongodb.net/Tracking?retryWrites=true&w=majority';
 mongoose.connect(dbUrl, {useNewUrlParser: true,useUnifiedTopology:true})
