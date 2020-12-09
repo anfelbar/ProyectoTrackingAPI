@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../src/models/index.js"],"names":["Tracking"],"mappings":";;;;;;AACA;;;;;;kBAEe;AACXA;AADW,C,EAHf","file":"index.js","sourcesContent":["//Importar todos los modelos.\r\nimport Tracking from './tracking';\r\n\r\nexport default {\r\n    Tracking\r\n}"]}
