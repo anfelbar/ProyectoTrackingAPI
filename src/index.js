@@ -12,7 +12,7 @@ import router from './routes';
 mongoose.Promise = global.Promise;
 const dbUrl = 'mongodb+srv://tracking:m0n1t0r30@trackingapi.pk5kg.mongodb.net/Tracking?retryWrites=true&w=majority';
 mongoose.connect(dbUrl, {useNewUrlParser: true,useUnifiedTopology:true})
-.then(mongoose => console.log('Conectando a la base de dato'))
+.then(mongoose => console.log('Conectando a la base de datos'))
 .catch(err => console.log(err));
 
 

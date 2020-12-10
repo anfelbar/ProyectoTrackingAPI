@@ -2,21 +2,25 @@
 import mongoose,{Schema} from 'mongoose';
 
 const trackingSchema = new Schema({
+
         BusId:{ type:Number },
         Road: { type: String },
-        Year: {type: Number},
-        Month: {type: Number},
-        Day: {type: Number},
-        Hour: {type: Number},
-        Minute: {type: Number},
-        Seconds: {type: Number},
-        //Time: { type: Date },
+        //
+        Year: {type: Array, "default" : [] },
+        Month: {type: Array, "default" : [] },
+        Day: {type: Array, "default" : [] },
+        Hour: {type: Array, "default" : [] },
+        Minute: {type: Array, "default" : [] },
+        Seconds: {type: Array, "default" : [] },
+        //
         CodeBattery : { type: String },
         Temperature: { type: Number },
         TimeService : { type: Number },
-        Latitude: { type: Number },
-        Longitude: { type: Number },
-        Speed: { type: Number },
+        //
+        Latitude: { type: Array , "default" : [] },
+        Longitude: { type: Array , "default" : [] },
+        Speed: { type: Array , "default" : [] },
+        //
         Distance: { type: Number },
         Alert: { type: String }
 });
