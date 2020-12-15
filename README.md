@@ -1,8 +1,10 @@
 # ProyectoTrackingAPI
 
-Node js.
-----
-Babel js
-Express
-----
-npm start.
+
+Proyecto para LOGIOS Global.
+
+## Tecnologias
+Nodejs - Babel - Express
+
+## Run
+npm start
