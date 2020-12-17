@@ -18,11 +18,21 @@ export default {
     },
     list: async (req, res, next) => {
         try {
-            const reg = await models.Tracking.find({});
+            const reg = await models.Tracking.find({});      
             res.status(200).json(reg);
         } catch (error) {
             res.status(500).send({ message: 'ERROR' });
             next(error);
         }
     },
+    deleteall: async(req, res, next)=>{
+        try {
+            const reg = await models.Tracking.deleteMany({})
+            res.send({message: 'Base de Datos limpia'})
+            //res.status(200);
+        } catch (error) {
+            res.status(500).send({ message: 'ERROR' });
+            next(error);
+        }
+    }
 }

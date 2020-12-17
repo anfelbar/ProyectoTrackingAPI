@@ -9,8 +9,9 @@ const router = routerx();
 /** Metodo principal de la herramienta. */
 router.post('/add',trackingController.add);
 
-/** Metodo solo disponible para pruebas. */
+/** Metodos  disponibles solo para pruebas. */
 router.get('/list',trackingController.list);
+router.get('/clean',trackingController.deleteall);
 
 
 export default router;
