@@ -34,5 +34,23 @@ export default {
             res.status(500).send({ message: 'ERROR' });
             next(error);
         }
+    },
+    init: async(req,res,next) =>{
+        try {
+            const reg = await models.Init.find({});
+            res.status(200).json(reg);
+        } catch (error) {
+            res.status(500).send({ message: 'ERROR' });
+            next(error);
+        }
+    },
+    addinit: async(req,res,next) =>{
+        try {
+            const reg = await models.Init.create(req.body);
+            res.status(200).json(reg);
+        } catch (error) {
+            res.status(500).send({ message: 'ERROR' });
+            next(error);
+        }
     }
 }
