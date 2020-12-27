@@ -14,6 +14,6 @@ const initsetupSchema = new Schema({
 });
 
 
-const Init =  mongoose.model('initsetup',initsetupSchema);
+const Initsetup =  mongoose.model('initsetup',initsetupSchema);
 
-export default Init;
+export default Initsetup;

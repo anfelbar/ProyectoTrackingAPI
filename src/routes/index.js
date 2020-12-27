@@ -3,6 +3,7 @@
 import routerx from 'express-promise-router';
 
 import trackingRouter from './tracking';
+import initsetupRouter from './initsetup';
 
 const router = routerx();
 
