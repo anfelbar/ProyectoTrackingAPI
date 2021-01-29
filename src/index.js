@@ -8,6 +8,26 @@ import models from "./models";
 // import http  from 'http';
 // import { io } from "socket.io";
 // import async from "async";
+async function dataUpdate(reg) {
+  console.log("Socket Emmit");
+  // var posiciones = await models.Tracking.find({});
+  for (let socketMapObj of socketMap) {
+    //if (posiciones.length > 0) {
+      socketMapObj.emit("dataUpdate", reg);
+    // }
+  }
+}
+
+async function add2 (req, res, next) {
+  try {
+    const reg = await models.Tracking.create(req.body);
+    dataUpdate(reg);
+    res.status(200).json(reg);
+  } catch (error) {
+    res.status(500).send({ message: "ERROR" });
+    next(error);
+  }
+}
 
 mongoose.Promise = global.Promise;
 
@@ -34,7 +54,10 @@ var socketMap = [];
 io.on("connection", (socket) => {
   console.log("Client Connected");
   socketMap.push(socket);
-  dataUpdate();
+  // dataUpdate();
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
 });
 
 app.use(morgan("dev"));
@@ -47,6 +70,9 @@ app.use(express.static(path.join(__dirname + "\\public")));
 
 app.use("/api", router);
 
+
+
+app.use('/api/add2', add2);
 app.set("port", process.env.PORT || 3000);
 
 //Gestion de las Rutas
@@ -55,12 +81,4 @@ http.listen(3000, "localhost");
   console.log("Server on port " + app.get("port"));
 }); */
 
-async function dataUpdate() {
-  console.log("Socket Emmit");
-  var posiciones = await models.Tracking.find({});
-  for (let socketMapObj of socketMap) {
-    if (posiciones.length > 0) {
-      socketMapObj.emit("dataUpdate", posiciones);
-    }
-  }
-}
+

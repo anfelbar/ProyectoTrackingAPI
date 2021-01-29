@@ -1,6 +1,10 @@
 import { query } from "express";
 import { model } from "mongoose";
 import models from "../models";
+import socketio from 'socket.io';
+
+// const io = socketio.listen(app);
+
 // import { io } from "socket.io";
 // import async from "async";
 // var io = require('socket.io')(http);
@@ -15,6 +19,16 @@ io.on("connection", (socket) => {
   socketMap.push(socket);
   dataUpdate();
 }); */
+
+/* async function dataUpdate() {
+  console.log("Socket Emmit");
+  var posiciones = await models.Tracking.find({});
+  for (let socketMapObj of socketMap) {
+    if (posiciones.length > 0) {
+      socketMapObj.emit("dataUpdate", posiciones);
+    }
+  }
+} */
 
 export default {
   add: async (req, res, next) => {
