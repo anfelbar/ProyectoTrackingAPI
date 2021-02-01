@@ -1,14 +1,14 @@
 //Importar todas las rutas.
+import routerx from "express-promise-router";
+import initsetupRouter from "./initsetup";
 
-import routerx from 'express-promise-router';
-
-import trackingRouter from './tracking';
-import initsetupRouter from './initsetup';
-
-const router = routerx();
-
-router.use('/tracking',trackingRouter);
-router.use('/initsetup',initsetupRouter);
+module.exports = function (server) {
+  const router = routerx();
+  const trackingRouter = require("./tracking")(server);
 
 
-export default router;
+  router.use("/tracking", trackingRouter);
+  router.use("/initsetup", initsetupRouter);
+
+  return router;
+};
